@@ -1,0 +1,46 @@
+import java.util.*;
+class TestClass {
+    public static void main(String args[] ) throws Exception {
+        
+        Scanner sc = new Scanner(System.in);
+        int T = sc.nextInt();
+ 
+        for (int i = 1; i<= T; i++){
+            int N = sc.nextInt();
+            int K = sc.nextInt();
+            sc.nextLine();
+            String inputString = sc.nextLine();
+            String[] A = inputString.split(" ");
+ 
+            if (K >= N){
+                K = K%N;
+            }
+ 
+            int L = K - 1;
+            int R = K;
+            int counterRight = 0;
+            int counterLeft = N - 1;
+ 
+            String[] B = new String[N];
+ 
+            while(R<N){
+                B[R] = A[counterRight] +" ";
+                R++;
+                counterRight++;
+            }
+ 
+            while(L>= 0){
+                B[L] = A[counterLeft]+ " ";
+                L--;
+                counterLeft--;
+            }
+             StringBuffer sb = new StringBuffer();
+             for(int x = 0; x < B.length; x++) {
+               sb.append(B[x]);
+              }
+             System.out.println(sb.toString());
+             System.out.println();
+        }
+        
+    }
+}
